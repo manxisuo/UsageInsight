@@ -34,7 +34,7 @@
 
 - Android Studio Hedgehog | 2023.1.1
 - Kotlin 1.9.22
-- Minimum SDK: 26 (Android 8.0)
+- Minimum SDK: 29 (Android 10.0)
 - Target SDK: 34 (Android 14)
 
 ## 使用说明
