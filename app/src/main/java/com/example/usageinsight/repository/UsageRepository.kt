@@ -13,15 +13,15 @@ interface UsageRepository {
     fun getAppUsageStats(startDate: LocalDate): Flow<List<AppUsageEntity>>
     
     // 解锁数据
-    fun getUnlockCountForDate(date: LocalDate): Flow<Int>
-    fun getUnlockStats(startDate: LocalDate): Flow<List<UnlockEntity>>
+    fun getUnlockCount(startTime: Long, endTime: Long): Flow<Int>
+    fun getUnlocks(startTime: Long, endTime: Long): Flow<List<UnlockEntity>>
     
     // 通知数据
     fun getNotificationCountForDate(date: LocalDate): Flow<Int>
     fun getNotificationStats(startDate: LocalDate): Flow<List<NotificationEntity>>
     
     // 数据清理
-    suspend fun cleanOldData(beforeDate: LocalDate)
+    suspend fun cleanupOldData(timestamp: Long)
     
     // 数据聚合
     fun getDailyUsageSummary(date: LocalDate): Flow<DailyUsageSummary>

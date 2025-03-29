@@ -7,14 +7,11 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface UnlockDao {
     @Insert
-    suspend fun insertUnlock(unlock: UnlockEntity)
+    suspend fun insert(unlock: UnlockEntity)
 
-    @Query("SELECT COUNT(*) FROM unlocks WHERE date = :date")
-    fun getUnlockCountForDate(date: Long): Flow<Int>
+    @Query("SELECT COUNT(*) FROM unlocks WHERE timestamp >= :startTime AND timestamp <= :endTime")
+    fun getUnlockCountBetween(startTime: Long, endTime: Long): Flow<Int>
 
-    @Query("SELECT * FROM unlocks WHERE date >= :startDate")
-    fun getUnlockStats(startDate: Long): Flow<List<UnlockEntity>>
-    
-    @Query("DELETE FROM unlocks WHERE date < :date")
-    suspend fun deleteOldData(date: Long)
+    @Query("SELECT * FROM unlocks WHERE timestamp >= :startTime AND timestamp <= :endTime ORDER BY timestamp DESC")
+    fun getUnlocksBetween(startTime: Long, endTime: Long): Flow<List<UnlockEntity>>
 }

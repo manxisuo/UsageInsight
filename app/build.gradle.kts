@@ -36,6 +36,7 @@ android {
 }
 
 dependencies {
+    implementation(libs.vision.internal.vkp)
     val composeBom = platform("androidx.compose:compose-bom:2024.02.00")
     implementation(composeBom)
     androidTestImplementation(composeBom)
@@ -47,6 +48,7 @@ dependencies {
     implementation("androidx.compose.foundation:foundation")
     implementation("androidx.compose.ui:ui-tooling-preview")
     debugImplementation("androidx.compose.ui:ui-tooling")
+    implementation("androidx.compose.material:material-icons-extended")
     
     // 架构组件
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
@@ -75,4 +77,6 @@ dependencies {
     
     // System UI Controller
     implementation("com.google.accompanist:accompanist-systemuicontroller:0.32.0")
+
+    implementation("com.github.jeziellago:compose-markdown:0.3.4")
 }

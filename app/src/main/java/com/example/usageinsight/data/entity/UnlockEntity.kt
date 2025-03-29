@@ -7,6 +7,5 @@ import androidx.room.PrimaryKey
 data class UnlockEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
-    val timestamp: Long,
-    val date: Long  // 用于分组统计
+    val timestamp: Long
 )
